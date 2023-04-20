@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add questions</title>
+</head>
+<body>  
+     {{k}} <br>
+     <p>f</p>
+     {{a}}
+    <form action="" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {% comment %} <label for="title">Title <br><input type="text" name="title"></label><br>
+        <label for="desc">Description <br> <textarea name="des" id="" cols="30" rows="10" ></textarea></label> <br>
+        <label for="case">Case <br><input type="text" name="case"></label><br> {% endcomment %}
+        {% comment %} <input type="file" name="imger">
+        <input type="text" name="im"> {% endcomment %}
+        {{form}}
+
+        
+      <input type="submit">
+   
+   
+    </form>
+        <img src="{{photo}}" >
+</body>
+</html>

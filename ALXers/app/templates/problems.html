@@ -1,0 +1,80 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALXers</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo"><a href="/home"><img src="{% static 'logo.png' %}" height="60px" alt="" srcset=""></a></div>
+        <div id="navs">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="/problems/">Problems</a></li>
+                {% if signed %}
+                <li><a href="/logout/">Log out</a></li>
+                <li style="display: flex; flex-direction: row-reverse;"><a href="/profile/"><img style="display: inline; border-radius: 70%; background-color: rgb(0, 0, 0);margin: 0;padding: 0;" src="{% static img %}"  height="40px" alt="" srcset=""/></a></li>
+               
+                {% else %}
+                   <li><a href="/signin/">Sign in</a></li>
+                   <li></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="boxer">
+        <div class="Ques">
+            <h2>Problems </h2><br/>
+
+            <ol>           
+             {% for i in title %}
+     
+             <li><a href="/problems/{{forloop.counter}}">{{i}}</a></li>
+ 
+             {% endfor %}
+
+            </ol> 
+        </div>
+        <div class="desc">
+            <h3>Description </h3>
+            <p>{{description}}</p><br/>
+        </div>
+        <div class="coding">
+         
+            <form action="" method="post" class="coding">
+                    {%csrf_token%}
+            <textarea name="answer" placeholder="Your code here" style="max-width: 100%;min-width: 600px;min-height: 300px;background:black;color:white">
+{% if run %} 
+{{ run }}
+{% else %}{{value}}
+            {% endif %}
+               </textarea>
+            <div><input type="submit" id="run-btn" value="Run" onclick="wait()" /> <button id="submit-btn">Submit</button></div> 
+           </form>
+           {% if got %}
+            <div class="result" style="color:green">{{result}}</div>
+          
+           {% else %}
+           <div class="result" style="color:red">{{result}}</div>
+            <div id="wait" class="result" style="background-color:red">{{error}}</div>
+       
+          
+           {% endif %}
+        </div>
+    </div>
+    
+</body>
+<script>
+    function wait(){
+         
+         document.getElementById('wait').innerHTML="wait...";
+    }
+   
+    
+</script>
+</html>

@@ -1,0 +1,41 @@
+{% load static %}
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALXers</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body style="position: relative;">
+    {{photo}}
+    <div class="nav">
+        <div class="logo"><a href="/home"><img src="{% static 'logo.png' %}" height="60px" alt="" srcset=""></a></div>
+        <div id="navs">
+            <ul>
+                <li><a href="/home/">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="/problems/">Problems</a></li>
+                <li><a href="/signin/">Sign in</a></li>
+            </ul>
+        </div>
+    </div>
+  <div class="signin" style="position: relative; height: 90%; width: 100%; display: flex; flex-direction: column; background-image: url({% static 'lock.jpg' %}); background-size: cover; z-index: -3;">
+        <form action="../profile/" method="post" entype="multipart/form-data" style="background: rgba(255, 255, 255, 0.3);height: 300px; width: 300px; padding: 25px; text-align: center;border-radius: 30px;z-index: 1000;">
+            {%csrf_token%}
+
+              <h2 style="margin: 20px;">Sign in</h2>
+               <p style="color:red"> {{error}}</p> 
+            <input type="email" placeholder="Email" name="email"> <br> <br>
+            <input type="password" placeholder="Create password" name="password"> <br><br>
+            <input type="submit" value="Sign In">
+        </form>
+        <div style="background-color: black; height: 100%; width: 100%; position: absolute; opacity: 0.8; top: 0; z-index: -1;"></div>
+
+
+  
+
+    
+    </div>
+    </div>
