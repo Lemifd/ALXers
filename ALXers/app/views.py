@@ -70,12 +70,22 @@ def home(request):
     except:
        nam=None
        active=None
+    male=len(User.objects.filter(gender="male"))
+    female=len(User.objects.filter(gender="female"))
+    tot_sol=0
+    tot_sub=0
+    for i in User.objects.all():
+       tot_sol+=i.solved
+    for i in User.objects.all():
+       tot_sub+=i.submitted
+   
 
-      
+
+       
     if active:
-        response=render(request,'index.html',{"name":ranked.items(),"signed":checkin(),"user":active,"img":activeUser(active.email)[-1],"form":DocumentForm}) 
+        response=render(request,'index.html',{"name":ranked.items(),"signed":checkin(),"user":active,"img":activeUser(active.email)[-1],"form":DocumentForm,"male":male,'female':female,'tot_sol':tot_sol,'tot_sub':tot_sub}) 
         return response
-    return render(request,'index.html',{"name":ranked.items(),"signed":checkin(),"k":nam,"active":active,"form":DocumentForm}) 
+    return render(request,'index.html',{"name":ranked.items(),"signed":checkin(),"k":nam,"active":active,"form":DocumentForm,"male":male,'female':female,'tot_sol':tot_sol,'tot_sub':tot_sub}) 
 def problems(request):
     try:
       nam=request.COOKIES['name']
@@ -296,17 +306,17 @@ def questions(request,id):
             active.save()
          active.submitted+=1
          active.save()
-         return render(request,'problems.html',{"description":eva['desc'],"run":run,"result":result,"got":corr,"value":value, "problems":ques_dic,"signed":signed,"title":_titles,"img":activeUser(active.email)[-1]})
+         return render(request,'problems.html',{"description":eva['desc'],"run":run,"result":result,"got":corr,"value":value, "problems":ques_dic,"signed":signed,"title":_titles,"img":activeUser(active.email)[-1],'type':eva['type']})
         except Exception as err:
    
-         return render(request,'problems.html',{"description":eva['desc'],"run":run,"error":err.__str__(),"result":"","value":value, "problems":ques_dic,"signed":signed,"img":activeUser(active.email)[-1],"title":_titles})
+         return render(request,'problems.html',{"description":eva['desc'],"run":run,"error":err.__str__(),"result":"","value":value, "problems":ques_dic,"signed":signed,"img":activeUser(active.email)[-1],"title":_titles,'type':eva['type']})
     else:
          if active:
             img=activeUser(active.email)[-1]
          else:
             img=None
 
-         return render(request,'problems.html',{"description":eva['desc'],"value":value, "problems":ques_dic,"signed":signed,"title":_titles,"img":img})
+         return render(request,'problems.html',{"description":eva['desc'],"value":value, "problems":ques_dic,"signed":signed,"title":_titles,"img":img,'type':eva['type']})
 def add(request):
 
    if request.method=="POST":

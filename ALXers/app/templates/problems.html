@@ -34,7 +34,7 @@
             <ol>           
              {% for i in title %}
      
-             <li><a href="/problems/{{forloop.counter}}">{{i}}</a></li>
+             <li><a href="/problems/{{forloop.counter}}">{{i}} <span style="color:green"><sup>{{type}}</sup></span></a></li>
  
              {% endfor %}
 

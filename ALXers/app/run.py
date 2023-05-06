@@ -1,34 +1,3 @@
-def solution(a): 
-   return max(a)
+def solution(a,b): return a+b
             
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
-               
-
                

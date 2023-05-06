@@ -1,36 +1,16 @@
 s1={
-    'title':"two sum",
-    "desc":"""
-Example 1:
+    'title':"Return Sum",
+    'type':'Easy',
+    "desc":f"""
+ Write a Fuction that accept to two inputs and return the sum of the inputs
+\nprototype : Solution()
 
+inputs: 1,2
+expected answer: 3
 
-Input: lowLimit = 1, highLimit = 10
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
-Ball Count:  2 1 1 1 1 1 1 1 1 0  0  ...
-Box 1 has the most number of balls with 2 balls.
+inputs: 3,8=>expected_answer=11
 
-Example 2:
-
-
-Input: lowLimit = 5, highLimit = 15
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 ...
-Ball Count:  1 1 1 1 2 2 1 1 1 0  0  ...
-Boxes 5 and 6 have the most number of balls with 2 balls in each.
-
-
-Example 3:
-
-
-Input: lowLimit = 19, highLimit = 28
-Output: 2
-Explanation:
-Box Number:  1 2 3 4 5 6 7 8 9 10 11 12 ...
-Ball Count:  0 1 1 1 1 1 1 1 1 2  0  0  ...
-Box 10 has the most number of balls with 2 balls.
+  
 """,
     "case":
     [
@@ -43,11 +23,16 @@ Box 10 has the most number of balls with 2 balls.
 
 
 s2= {
-    'title':"max of array",
+    'title':"Max of aArray",
+    'type':'Easy',
     'desc':f"""
-    You are given array of number your job jis to write  function that return the max of array
-    the prototype :
-     maxx(array):
+    Write a Fuction that accept an array ad return the maximum value in that array
+   
+    \nprototype : Solution()
+
+    input:[3,2,4,1]=>answer=4
+    input:[1,3,8,8,4,6]=>answer=9 
+
     """,
     "case":
     [
@@ -56,18 +41,42 @@ s2= {
     ]
     }
 s3= {
-    'title':"max of array1",
+    'title':"Max of Three Numbers",
+    'type':'Easy',
     'desc':f"""
-    You are given array of number your job jis to write  function that return the max of array
-    the prototype :
-     maxx(array):
+     Write a Python function that find the maximum of three numbers.
+
+      \nprototype : Solution()
+
+    input:3,2,4=>answer=4
+    inputs:9,8,6=>answer=9
     """,
     "case":
     [
-    [[[1,2,3,4]],4],
-    [[[1,3,9,8,4,6]],9]
+    [[[2],[3],[4]],4],
+    [[[9],[8],[6]],9]
     ]
     }
+
+s4= {
+    'title':"Reverse String",
+    'type':'Easy',
+    'desc':f"""
+     Write a Python function that accepts string and return reversed string.
+
+
+      \nprototype : Solution()
+
+    input:123abcd=>answer=dcba321
+    inputs:zxcv098=>answer=890vcxz
+    """,
+    "case":
+    [
+    [["123abcd"],'dcba321'],
+    [["zxcv098"],'890vcxz']
+    ]
+    }
+
 
 
 
